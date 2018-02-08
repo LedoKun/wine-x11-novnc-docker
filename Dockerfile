@@ -14,13 +14,20 @@ RUN \
  usermod -g 100 nobody && \
  usermod -d /config nobody && \
  chown -R nobody:users /home && \
+ dpkg --add-architecture i386 && \
  apt-get update && \
+ apt-get dist-upgrade -y && \
  apt-get -y install \
  xvfb \
  x11vnc \
  xdotool \
  wget \
- supervisor
+ supervisor && \
+ wget -nc https://dl.winehq.org/wine-builds/Release.key && \
+ apt-key add Release.key && \
+ apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/ && \
+ apt-get update && \
+ apt-get install --install-recommends -y winehq-stable
 
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
