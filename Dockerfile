@@ -9,13 +9,19 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
 # Configure user nobody to match unRAID's settings
- RUN \
+RUN \
  usermod -u 99 nobody && \
  usermod -g 100 nobody && \
  usermod -d /config nobody && \
- chown -R nobody:users /home
+ chown -R nobody:users /home && \
+ apt-get update && \
+ apt-get -y install \
+ xvfb \
+ x11vnc \
+ xdotool \
+ wget \
+ supervisor
 
-RUN apt-get update &&  apt-get -y install xvfb x11vnc xdotool wget supervisor
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 ENV WINEPREFIX /root/prefix32
