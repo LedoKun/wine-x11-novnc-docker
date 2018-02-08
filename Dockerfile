@@ -1,5 +1,5 @@
-FROM phusion/baseimage:0.9.16
-MAINTAINER archedraft
+FROM phusion/baseimage:latest
+MAINTAINER LedoKun <romamp100 at gmail dot com>
 
 # Set correct environment variables
 ENV HOME /root
@@ -28,4 +28,4 @@ ADD novnc /root/novnc/
 # Expose Port
 EXPOSE 8080
 
-CMD ["/usr/bin/supervisord"]
+CMD ["/sbin/my_init", "/usr/bin/supervisord"]
