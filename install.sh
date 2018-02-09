@@ -3,7 +3,14 @@
 # Exit when any command fails
 set -e
 
-BUILD_PACKAGE='git'
+BUILD_PACKAGES='git'
+DEPEN_PACKAGES='wget \
+  xvfb \
+  x11vnc \
+  xdotool \
+  supervisor \
+  python-numpy \
+  net-tools'
 
 # Configure user nobody to match unRAID's settings
 usermod -u 99 nobody
@@ -14,14 +21,8 @@ chown -R nobody:users /home
 # Install base packages
 apt update
 apt install -y \
-  wget \
-  xvfb \
-  x11vnc \
-  xdotool \
-  supervisor \
-  python-numpy \
-  net-tools \
-  ${BUILD_PACKAGE}
+  ${DEPEN_PACKAGES} \
+  ${BUILD_PACKAGES}
 
 # Add Wine repo
 wget -nc https://dl.winehq.org/wine-builds/Release.key
@@ -41,5 +42,6 @@ git clone git://github.com/kanaka/noVNC /root/novnc/
 git clone git://github.com/novnc/websockify /root/novnc/utils/websockify/
 
 # Cleanup
+apt autoremove --purge ${BUILD_PACKAGES}
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 rm -rf /install.sh /Release.key
