@@ -3,14 +3,14 @@
 # Exit when any command fails
 set -e
 
-BUILD_PACKAGES='git'
-DEPEN_PACKAGES='wget \
-  xvfb \
+BUILD_PACKAGES="git"
+DEPEN_PACKAGES="net-tools \
+  python-numpy \
+  supervisor \
+  wget \
   x11vnc \
   xdotool \
-  supervisor \
-  python-numpy \
-  net-tools'
+  xvfb"
 
 # Configure user nobody to match unRAID's settings
 usermod -u 99 nobody
