@@ -8,7 +8,6 @@ BUILD_PACKAGES="git"
 DEPEN_PACKAGES="cabextract \
   net-tools \
   python-numpy \
-  supervisor \
   unzip \
   wget \
   x11vnc \
@@ -58,3 +57,6 @@ cp /root/novnc/vnc_lite.html /root/novnc/index.html
 apt-get autoremove --purge -y ${BUILD_PACKAGES}
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 rm -rf /install.sh /Release.key
+
+# Create Runit services
+chmod a+x /etc/service/ -R
