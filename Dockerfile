@@ -13,16 +13,16 @@ ENV WINEPREFIX /root/prefix32
 ENV WINEARCH win32
 ENV DISPLAY :0
 
-ADD install.sh /install.sh
-ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+ADD root/install.sh /install.sh
+ADD root/supervisord.conf /supervisord.conf
 
 # Run install script
 RUN \
- /bin/sh /install.sh
+ /bin/bash /install.sh
 
 WORKDIR /root/
 
 # Expose Port
 EXPOSE 8080
 
-CMD ["/sbin/my_init", "/usr/bin/supervisord"]
+CMD ["/sbin/my_init", "--", "/usr/bin/supervisord -c /supervisord.conf"]

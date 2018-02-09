@@ -1,11 +1,8 @@
-### Forked from [solarkennedy/wine-x11-novnc-docker](https://github.com/solarkennedy/wine-x11-novnc-docker) to upgrade the container's packages.
+### Forked from [solarkennedy/wine-x11-novnc-docker](https://github.com/solarkennedy/wine-x11-novnc-docker).
 
 ## wine-x11-novnc-docker
 
-Not a very good name, is it?
-
-Ever wanted to containerize your wine applications and access them via
-a web browser? No? Neither did I!
+Containerized wine applications with a web browser access.
 
 This container runs:
 
@@ -14,18 +11,16 @@ This container runs:
 * [noNVC](https://kanaka.github.io/noVNC/) - A HTML5 canvas vnc viewer
 * Fluxbox - a small window manager
 * Explorer.exe - to demo that it works
-
-This is a [trusted build](https://registry.hub.docker.com/u/solarkennedy/wine-x11-novnc-docker/)
-on the Docker Hub.
+* WineTricks - a script to download and install Windows runtime lib
 
 ## Run It
 
-    docker run -p 8080:8080 solarkennedy/wine-x11-novnc-docker
+    docker run -p 8080:8080 ledokun/wine-x11-novnc-docker
     xdg-open http://localhost:8080
 
 In your web browser you should see the default application, explorer.exe:
 
-![Explorer Screenshot](https://raw.githubusercontent.com/solarkennedy/wine-x11-novnc-docker/master/screenshot.png)
+![Explorer Screenshot](https://raw.githubusercontent.com/LedoKun/wine-x11-novnc-docker/master/screenshot.png)
 
 ## Modifying
 
@@ -35,4 +30,5 @@ wine programs?
 ## Issues
 
 * Wine could be optimized a bit
+* Bloated container...
 * Fluxbox could be skinned or reduced
