@@ -19,8 +19,8 @@ usermod -d /config nobody
 chown -R nobody:users /home
 
 # Install base packages
-apt update
-apt install -y \
+apt-get update
+apt-get install -y \
   ${DEPEN_PACKAGES} \
   ${BUILD_PACKAGES}
 
@@ -31,9 +31,9 @@ apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
 
 # Install Wine
 dpkg --add-architecture i386
-apt update
-apt dist-upgrade -y
-apt install -y --install-recommends \
+apt-get update
+apt-get dist-upgrade -y
+apt-get install -y --install-recommends \
   winehq-stable
 
 # Install noVNC
@@ -42,6 +42,6 @@ git clone git://github.com/kanaka/noVNC /root/novnc/
 git clone git://github.com/novnc/websockify /root/novnc/utils/websockify/
 
 # Cleanup
-apt autoremove --purge ${BUILD_PACKAGES}
+apt-get autoremove --purge -y ${BUILD_PACKAGES}
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 rm -rf /install.sh /Release.key
