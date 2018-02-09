@@ -34,7 +34,7 @@ apt-key add Release.key
 apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
 
 # Install Wine
-# dpkg --add-architecture i386
+dpkg --add-architecture i386
 apt-get update
 apt-get dist-upgrade -y
 apt-get install -y --install-recommends \
