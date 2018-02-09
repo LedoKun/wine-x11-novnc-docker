@@ -25,4 +25,4 @@ WORKDIR /root/
 # Expose Port
 EXPOSE 8080
 
-CMD ["/sbin/my_init", "/usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf"]
+CMD ["/sbin/my_init", "/usr/bin/supervisord"]
