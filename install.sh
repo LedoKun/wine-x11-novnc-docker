@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Exit when any command fails
+set -e
+
 BUILD_PACKAGE='git'
 
 # Configure user nobody to match unRAID's settings
