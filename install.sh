@@ -42,4 +42,4 @@ git clone git://github.com/novnc/websockify /root/novnc/utils/websockify/
 
 # Cleanup
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-rm /install.sh
+rm -rf /install.sh /Release.key
