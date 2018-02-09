@@ -15,7 +15,6 @@ ENV DISPLAY :0
 
 ADD install.sh /install.sh
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-ADD novnc /root/novnc/
 
 # Run install script
 RUN \
