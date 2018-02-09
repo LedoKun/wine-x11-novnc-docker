@@ -19,6 +19,8 @@ apt install -y \
   x11vnc \
   xdotool \
   supervisor \
+  python-numpy \
+  net-tools \
   ${BUILD_PACKAGE}
 
 # Add Wine repo
@@ -36,6 +38,7 @@ apt install -y --install-recommends \
 # Install noVNC
 mkdir -p /root/novnc/
 git clone git://github.com/kanaka/noVNC /root/novnc/
+git clone git://github.com/novnc/websockify /root/novnc/utils/websockify/
 
 # Cleanup
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
