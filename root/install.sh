@@ -15,14 +15,12 @@ DEPEN_PACKAGES="cabextract \
   gxmessage \
   xvfb"
 
-# Configure user nobody to match unRAID's settings
-usermod -u 99 nobody
-usermod -g 100 nobody
-usermod -d /config nobody
-chown -R nobody:users /home
+# Enable i386
+dpkg --add-architecture i386
 
 # Install base packages
 apt-get update
+apt-get dist-upgrade -y
 apt-get install -y \
   ${DEPEN_PACKAGES} \
   ${BUILD_PACKAGES}
@@ -33,7 +31,6 @@ apt-key add Release.key
 apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
 
 # Install Wine
-dpkg --add-architecture i386
 apt-get update
 apt-get dist-upgrade -y
 apt-get install -y --install-recommends \
@@ -51,7 +48,7 @@ mv winetricks /usr/local/bin
 mkdir -p /root/novnc/
 git clone git://github.com/kanaka/noVNC /root/novnc/
 git clone git://github.com/novnc/websockify /root/novnc/utils/websockify/
-cp /root/novnc/vnc_lite.html /root/novnc/index.html
+cp /root/novnc/vnc.html /root/novnc/index.html
 
 # Cleanup
 apt-get autoremove --purge -y ${BUILD_PACKAGES}
