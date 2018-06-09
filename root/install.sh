@@ -3,9 +3,10 @@
 # Exit when any command fails
 set -e
 
-# Variables
+# Packages
 BUILD_PACKAGES="git"
 DEPEN_PACKAGES="cabextract \
+  fluxbox \
   mono-complete \
   net-tools \
   python-numpy \

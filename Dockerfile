@@ -2,7 +2,7 @@ FROM phusion/baseimage:latest
 LABEL Author="LedoKun <romamp100 at gmail dot com>"
 
 # Set correct environment variables
-ENV HOME /root
+ENV HOME /root/
 ENV DEBIAN_FRONTEND noninteractive
 ENV LC_ALL C.UTF-8
 ENV LANG en_US.UTF-8
