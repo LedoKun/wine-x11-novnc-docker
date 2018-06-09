@@ -6,6 +6,7 @@ set -e
 # Variables
 BUILD_PACKAGES="git"
 DEPEN_PACKAGES="cabextract \
+  mono-complete \
   net-tools \
   python-numpy \
   unzip \
@@ -13,7 +14,11 @@ DEPEN_PACKAGES="cabextract \
   x11vnc \
   xdotool \
   gxmessage \
-  xvfb"
+  xvfb \
+  ttf-mscorefonts-installer"
+WINE_PACKAGES="winehq-stable \
+  wine-mono \
+  wine-gecko"
 
 # Enable i386
 dpkg --add-architecture i386
@@ -30,11 +35,11 @@ wget -nc https://dl.winehq.org/wine-builds/Release.key
 apt-key add Release.key
 apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
 
-# Install Wine
+# Install base packages
 apt-get update
 apt-get dist-upgrade -y
-apt-get install -y --install-recommends \
-  winehq-stable
+apt-get install -y \
+  ${WINE_PACKAGES}
 
 # Install WineTricks
 wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks

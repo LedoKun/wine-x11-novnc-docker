@@ -12,6 +12,7 @@ This container runs:
 * Fluxbox - a small window manager
 * Explorer.exe - to demo that it works
 * WineTricks - a script to download and install Windows runtime lib
+* [NEW!] Wine-mono and Wine-Gecko
 
 ## Run It
 
@@ -30,5 +31,4 @@ wine programs?
 ## Issues
 
 * Wine could be optimized a bit
-* Bloated container...
-* Fluxbox could be skinned or reduced
+* Extremely! bloated container...

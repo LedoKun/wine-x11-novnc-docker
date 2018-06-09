@@ -1,5 +1,5 @@
 FROM phusion/baseimage:latest
-MAINTAINER LedoKun <romamp100 at gmail dot com>
+LABEL Author="LedoKun <romamp100 at gmail dot com>"
 
 # Set correct environment variables
 ENV HOME /root
